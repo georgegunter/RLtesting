@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+	<arg name="description" default="RL_test"/>
+	
+ 	<node pkg="RLtesting" type="RL.py" name="RLtesting" output="screen" >
+ 		<param name="rl_filename" value="$(find RLtesting)scripts/super_resolution_kinda_safe.onnx" />
+ 	</node>
+
+<!--  	<node pkg="RLtesting" type ="rosbag_record.sh" name="bashscript2" output="screen" args="$(arg description) $(arg hwil)" />
+	</node> -->
+
+
+</launch>

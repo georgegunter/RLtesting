@@ -21,12 +21,16 @@
 	</node>
 	<node pkg="velocity_controller" type="velocity_controller_node" name="velocity_controller_node" output="screen">
 		<remap from="/vehicle/vel" to="/vel"/>
-		<remap from="/cmd_accel" to="/cmd_accel_pre"/>
+		<remap from="/cmd_accel" to="/cmd_accel_vel"/>
 	</node>
 
-	<node pkg="can_to_ros" type ="rosbag_record.sh" name="bashscript2" output="screen" args="$(arg description) $(arg hwil)" />
 
- 	<node pkg="RLtesting" type="RL.py" name="RLtesting" output="screen" />
+ 	<node pkg="RLtesting" type="RL.py" name="RLtesting" output="screen" >
+ 		<param name="RL_filename" value="$(find RLtesting)scripts/super_resolution_kinda_safe.onnx" />
+ 		<remap from="/RL_cmd_accel" to="/cmd_accel_pre"/>
+ 	</node>
+
+ 	<node pkg="can_to_ros" type ="rosbag_record.sh" name="bashscript2" output="screen" args="$(arg description) $(arg hwil)" />
 
 
 </launch>

@@ -11,9 +11,8 @@ import time
 
 
 # For loading the nn:
-import onnx
-import numpy as np
-import onnxruntime as ort
+import torch
+
 
 import numpy as np
 import pandas as pd
@@ -67,15 +66,14 @@ def cmd_vel_callback(data):
 class RL_Accel_Controller():
     def __init__(self,model_path):
         self.model_path = model_path
-        self.model = onnx.load_model(model_path)
-        onnx.checker.check_model(self.model)
-        self.ort_session = ort.InferenceSession(model_path)
+        self.model = torch.load(model_path, weights_only=False)
+        _ = self.model.eval()
         
     def accel_func(self,s,v,dv):
         #  state is [av speed, leader speed, headway]
         data = np.array([[v,v+dv,s]]).astype(np.float32)
-        outputs = self.ort_session.run(None, {self.ort_session.get_inputs()[0].name: data})
-        return outputs[0][0][0]
+        u = float(self.model(torch.from_numpy(data))[0][0])
+        return u
 
     def get_accel(self):
         global lead_x

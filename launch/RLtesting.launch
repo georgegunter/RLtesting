@@ -33,12 +33,13 @@
 <!-- 	<node pkg="cbf_testing" type="leadVelProcessing.py" name="leadVelProcessing" output="screen" /> -->
 
 
-	<node pkg="RLtesting" type="RL.py" name="RLtesting" output="screen" >
+ 	<node pkg="RLtesting" type="RL.py" name="RLtesting" output="screen" >
  		<param name="rl_filename" value="$(find RLtesting)scripts/super_resolution_kinda_safe.pt" />
  	</node>
 
 
-	<node pkg="can_to_ros" type ="rosbag_record.sh" name="bashscript2" output="screen" args="$(arg description) $(arg hwil)" />
+	<node pkg="can_to_ros" type ="rosbag_record.sh" name="bashscript2" output="screen" args="$(arg description) $(arg hwil)" >
+	</node>
 
 
 

@@ -91,7 +91,8 @@ class RL_Accel_Controller():
 class RL_controller:
     def __init__(self):
         rospy.init_node('RLtesting', anonymous=True)
-
+        print('rospy params: ')
+        print(rospy.get_param_names())
         # model_path = 'super_resolution_kinda_safe.onnx'
         model_path = rospy.get_param("/RL_testing/rl_filename")
         print(model_path)

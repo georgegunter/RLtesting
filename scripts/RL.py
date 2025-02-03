@@ -15,7 +15,6 @@ import torch
 
 
 import numpy as np
-import pandas as pd
 import json
 
 # velocity_topic = "/car/state/vel_x"

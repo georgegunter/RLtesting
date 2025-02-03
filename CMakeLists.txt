@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(mpctesting)
+project(RLtesting)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -223,7 +223,7 @@ catkin_install_python(PROGRAMS scripts/leadVelProcessing.py
 DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-catkin_install_python(PROGRAMS scripts/mpcForward.py
+catkin_install_python(PROGRAMS scripts/RLForward.py
 DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

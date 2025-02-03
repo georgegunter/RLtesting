@@ -1,6 +1,6 @@
 apps:
-  - name: mpctesting
-    path: mpctesting/
+  - name: RLtesting
+    path: RLtesting/
     properties:
       - owns_panda: true
     ros_repositories:
@@ -15,4 +15,4 @@ apps:
         - owner: jmscslgroup
           repo: set_point_adapter
         - owner: georgegunter
-          repo: mpctesting
+          repo: RLtesting

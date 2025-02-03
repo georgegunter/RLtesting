@@ -94,7 +94,7 @@ class RL_controller:
         print('rospy params: ')
         print(rospy.get_param_names())
         # model_path = 'super_resolution_kinda_safe.onnx'
-        model_path = rospy.get_param("/RL_testing/rl_filename")
+        model_path = rospy.get_param("/RLtesting/rl_filename")
         print(model_path)
         self.RL_accel = RL_Accel_Controller(model_path)
 

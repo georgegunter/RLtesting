@@ -218,11 +218,6 @@ include_directories(
 #DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 #)
 
-
-catkin_install_python(PROGRAMS scripts/leadVelProcessing.py
-DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
-
 catkin_install_python(PROGRAMS scripts/RL.py
 DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

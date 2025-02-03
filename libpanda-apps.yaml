@@ -9,7 +9,7 @@ apps:
           branch_or_hash: d7134708e49001b407aba4c382c9c6daec6ce0de
         - owner: jmscslgroup
           repo: cbf
-          branch_or_hash: test_HO_with_radar
+          branch_or_hash: original_CBF_implementation_2021
         - owner: jmscslgroup
           repo: velocity_controller
         - owner: jmscslgroup

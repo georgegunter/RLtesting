@@ -121,7 +121,6 @@ class RL_controller:
 
                 try:
                     RL_cmd_accel = self.RL_accel.get_accel()
-                    print(RL_cmd_accel)
                 except Exception as e:
                     print(e)
                     traceback.print_exc()

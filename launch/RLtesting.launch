@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+	<arg name="description" default="cbf_codegen_test"/>
+
+	<arg name="margin" default="30.0"/>
+	<arg name="use_margin" default="false"/>
+	<arg name="hwil" default="true"/>
+	<arg name="readonly" default="false"/>
+
+	<node pkg="can_to_ros" type="vehicle_interface" name="vehicle_interface" output="screen" respawn="true" respawn_delay="2" />
+	<node pkg="can_to_ros" type ="subs" name="subs" output="screen" if="$(arg hwil)">
+	</node>
+	<include file="$(find can_to_ros)launch/safety_checks.launch" />
+
+	<node pkg="margin" type="margin_node" name="margin_node" output="screen" if="$(arg use_margin)">
+	</node>
+
+	<node pkg="set_point_adapter" type="set_point_adapter" name="set_point_adapter" output="screen" required="true" >
+		<remap from="/v_ref_float" to="/cmd_vel"/>
+	</node>
+	<node pkg="velocity_controller" type="velocity_controller_node" name="velocity_controller_node" output="screen">
+		<remap from="/vehicle/vel" to="/vel"/>
+		<remap from="/cmd_accel" to="/cmd_accel_pre"/>
+	</node>
+
+	<node pkg="can_to_ros" type ="rosbag_record.sh" name="bashscript2" output="screen" args="$(arg description) $(arg hwil)" />
+
+ 	<node pkg="RLtesting" type="RL.py" name="RLtesting" output="screen" />
+
+
+</launch>

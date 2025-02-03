@@ -1,6 +1,6 @@
 apps:
-  - name: cbf
-    path: cbf/
+  - name: mpctesting
+    path: mpctesting/
     properties:
       - owns_panda: true
     ros_repositories:
@@ -9,10 +9,10 @@ apps:
           branch_or_hash: d7134708e49001b407aba4c382c9c6daec6ce0de
         - owner: jmscslgroup
           repo: cbf
-          branch_or_hash: 
+          branch_or_hash: test_HO_with_radar
         - owner: jmscslgroup
           repo: velocity_controller
-          branch_or_hash: 3f8a36192d41b7d454e9f787ff61b99f287e3e0d
         - owner: jmscslgroup
-          repo: setpointreader
-          branch_or_hash: bf9116d7e7a8284527e1d94537de1228c2b3abb8
+          repo: set_point_adapter
+        - owner: georgegunter
+          repo: mpctesting

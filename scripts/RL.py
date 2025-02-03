@@ -37,6 +37,7 @@ global velocity
 global cmd_vel
 
 global RL_cmd_accel
+global cmd_accel_pre
 
 
 velocity = 0
@@ -103,6 +104,9 @@ class RL_controller:
         global RL_cmd_accel_pub
         RL_cmd_accel_pub = rospy.Publisher('/RL_cmd_accel', Float64, queue_size=1000)
  
+        global cmd_accel_pre_pub
+        cmd_accel_pre_pub = rospy.Publisher('/cmd_accel_pre', Float64, queue_size=1000)
+
         self.rate = rospy.Rate(20)
 
     def loop(self):
@@ -126,6 +130,7 @@ class RL_controller:
 
 
                 RL_cmd_accel_pub.publish(RL_cmd_accel)
+                cmd_accel_pre_pub.publish(RL_cmd_accel)
 
 
             except Exception as e:

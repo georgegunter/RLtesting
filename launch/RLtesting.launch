@@ -35,7 +35,6 @@
 
  	<node pkg="RLtesting" type="RL.py" name="RLtesting" output="screen" >
  		<param name="rl_filename" value="$(find RLtesting)scripts/super_resolution_kinda_safe.pt" />
- 		<remap from="/RL_cmd_accel" to="/cmd_accel_pre"/>
  	</node>
 
 

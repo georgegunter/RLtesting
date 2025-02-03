@@ -90,13 +90,13 @@ class RL_Accel_Controller():
 
 class RL_controller:
     def __init__(self):
+        rospy.init_node('RLtesting', anonymous=True)
 
         # model_path = 'super_resolution_kinda_safe.onnx'
         model_path = rospy.get_param("/RL_testing/rl_filename")
         print(model_path)
         self.RL_accel = RL_Accel_Controller(model_path)
 
-        rospy.init_node('RLtesting', anonymous=True)
 
         rospy.Subscriber(lead_x_topic, Float64, lead_x_callback)
         rospy.Subscriber(lead_rv_topic, Float64, lead_rv_callback)
